@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block subtitle %}Home - {% endblock %}
+{% load staticfiles %}
+
+
+{% block body %}
+	<main class="index">
+		<!-- THE INDEX PAGE FOR LOGGED IN USERS -->
+		{% if user.is_authenticated %}
+			<section class="text-center banner-cta">
+				<div>
+					<a href="{% url 'journal:journal-write' %}" class="write-down-cta">Write down your thoughts.<i class="fa fa-external-link"></i></a>
+				</div>
+			</section>
+			<section class="all-journals">
+				{% if all_journal_entries %}
+					{% for journal in all_journal_entries %}
+						{% if journal.written_by.username != user.username %}
+							<div class="journal-entry-wrapper">
+								<span class="journal-header others">{{ journal.journal_title }} by {{ journal.written_by.username }}</span>
+								<p class="journal-entry">{{ journal.journal_entry }}</p>
+							</div>
+						{% elif journal.written_by.username == user.username %}
+							<div class="journal-entry-wrapper">
+								<span class="journal-header mine">{{ journal.journal_title }} by {{ journal.written_by.username }}</span>
+								<p class="journal-entry">{{ journal.journal_entry }}</p>
+								<span class="flex-row-nowrap crud-actions">
+									<a href="{% url 'journal:journal-update' journal.id %}"><i class="fa fa-2x fa-pencil-square"></i></a>
+									<form action="{% url 'journal:journal-delete' journal.id %}" method="post">
+										{% csrf_token %}
+										<input type="hidden" name="journal_id" value="{{ journal.id }}">
+										<button type="submit" name="delete" value="Delete">
+											<i class="fa fa-2x fa-trash"></i>
+										</button>
+									</form>
+								</span>
+							</div>
+						{% endif %}
+					{% endfor %}
+				{% else %}
+					<h5>There does not seem to be any journal entry here.</h5>
+				{% endif %}
+			</section>
+			
+		<!-- THE LANDING PAGE FOR NON-LOGGED IN -->
+		{% else %}
+			<section class="headline-wrapper flex-row-nowrap">
+				<img src="{% static 'journal/images/favicon/android-chrome-512x512.png' %}" alt="Spaces Logo">
+				<div class="flex-column-nowrap">
+					<h1 class="branding">Welcome to Spaces</h1>
+					<div class="auth-links">
+						<a href="{% url 'journal:login' %}">Log in</a>
+						<a href="{% url 'journal:register' %}">Sign up</a>
+					</div>
+				</div>
+			</section>
+			<section class="body-copy">
+				<div class="flex-row-nowrap">
+					<img src="{% static 'journal/images/question.png' %}" alt="Question mark">
+					<div>
+						<h3>What is Spaces?</h3>
+						<p>
+							Spaces is an intuitive app thats aims to provide a space for small groups to share their personal reflections and insights among themselves in a safe space on the web.
+						</p>
+						<p>
+							Think of journals, but made social.
+						</p>
+					</div>
+				</div>
+			</section>
+		{% endif %}
+
+	</main>
+	
+	
+{% endblock %}

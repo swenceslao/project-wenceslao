@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block subtitle %}Register - {% endblock %}
+{% load staticfiles %}
+
+{% block body %}
+	<main class="registration">
+		<section>
+			<div class="logo-banner flex-row-nowrap">
+				<img src="{% static 'journal/images/favicon/android-chrome-512x512.png' %}" alt="Spaces Logo">
+				<h1 class="branding">Spaces</h1>
+			</div>
+		</section>
+		<section class="auth-input-box orange">
+			<div>
+				<h3 class="headline-text">Create an account</h3>
+			</div>
+			<form action="" method="post" enctype="application/x-www-form-urlencoded">
+				{% csrf_token %}
+				{% include 'journal-form-template.html' %}
+				<div class="flex-row-nowrap form-field-submit">
+					<a href="{% url 'journal:index' %}">Go Back</a>
+					<button type="submit" class="orange">Create Account</button>
+				</div>
+			</form>
+		</section>
+	</main>
+{% endblock %}

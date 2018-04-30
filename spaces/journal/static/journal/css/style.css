@@ -1,0 +1,290 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Roboto', sans-serif;
+  font-size: 100%;
+  background-color: #fafafa;
+  height: 100%;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+.flex-row-nowrap {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.flex-row-wrap {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+.flex-column-nowrap {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.flex-column-wrap {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.branding {
+  margin: 0;
+  color: #464646;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+}
+
+nav {
+  border-bottom: 1px solid #ebebeb;
+  width: 100%;
+  padding: 1em 1em;
+}
+nav ul {
+  justify-content: space-between;
+  width: 768px;
+  margin: 0 auto;
+  list-style-type: none;
+  padding: 0;
+}
+nav ul li img {
+  width: 30px;
+  margin-right: 0.5em;
+}
+
+.index section {
+  margin: 5em auto;
+  width: 70%;
+}
+.index .headline-wrapper {
+  background-color: #e4f3f5;
+  padding: 10em 0;
+  margin: 0 auto;
+  width: 100%;
+  justify-content: center;
+}
+.index .headline-wrapper img {
+  margin-right: 1em;
+  width: 120px;
+}
+.index .headline-wrapper .auth-links {
+  margin-top: 2em;
+}
+.index .headline-wrapper .auth-links a {
+  color: #464646;
+  margin: 0.3em;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+}
+.index .headline-wrapper .auth-links a:first-child {
+  border: 1px solid #217A93;
+}
+.index .headline-wrapper .auth-links a:last-child {
+  border: 1px solid #ED8E2E;
+}
+.index .body-copy {
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #797979;
+}
+.index .body-copy img {
+  margin-right: 1em;
+  width: 70px;
+}
+.index .banner-cta {
+  margin: 5em auto;
+  width: 100%;
+}
+.index .banner-cta .write-down-cta {
+  font-family: 'Cousine', monospace;
+  font-size: 1.5em;
+  background-color: purple;
+  color: white;
+  padding: 1em;
+  text-decoration: underline;
+}
+.index .banner-cta .write-down-cta i {
+  margin-left: 0.5em;
+}
+.index .all-journals {
+  border-top: 1px solid #646057;
+  padding: 5em 1em 0;
+}
+.index .all-journals .journal-entry-wrapper {
+  margin-bottom: 2em;
+  padding-bottom: 2em;
+  border-bottom: 1px solid #eaeaea;
+}
+.index .all-journals .journal-entry-wrapper .journal-header.others {
+  border-left: 5px solid  #92DA2A;
+  padding-left: 5px;
+}
+.index .all-journals .journal-entry-wrapper .journal-header.mine {
+  border-left: 5px solid gray;
+  padding-left: 5px;
+}
+.index .all-journals .journal-entry-wrapper .journal-entry {
+  color: #464646;
+  font-family: 'Cousine', monospace;
+  font-size: 0.8em;
+  line-height: 1.4;
+}
+.index .all-journals .crud-actions {
+  justify-content: flex-end;
+}
+.index .all-journals .crud-actions button[value='Delete'] {
+  border: none;
+  background: none;
+  margin-left: 1em;
+}
+
+.registration {
+  padding-top: 5em;
+}
+.registration .logo-banner {
+  justify-content: center;
+}
+.registration .logo-banner img {
+  margin-right: 1em;
+  width: 70px;
+}
+.registration .auth-input-box {
+  box-shadow: 0 0 2px #666666;
+  margin: 5em auto 6em;
+  padding: 1em 4em;
+  max-width: 50%;
+  min-width: 340px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+.registration .auth-input-box .headline-text {
+  font-family: 'Raleway';
+  margin-top: 0.5em;
+}
+.registration .auth-input-box .form-field-wrapper {
+  align-items: start;
+  margin-bottom: 1em;
+}
+.registration .auth-input-box .form-field-wrapper label {
+  font-size: 12px;
+}
+.registration .auth-input-box .form-field-wrapper input {
+  margin-top: 8px;
+  padding: 0.5em 0.1em;
+  border: none;
+  border-bottom: 1px solid #919191;
+  width: 100%;
+}
+.registration .auth-input-box .form-field-submit {
+  justify-content: space-between;
+  margin-top: 2em;
+  font-size: 1em;
+}
+.registration .auth-input-box .form-field-submit button[type='submit'] {
+  border-radius: 5px;
+  color: white;
+  padding: 0.4em 1.8em;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+.registration .auth-input-box .form-field-submit button.orange {
+  background: #ED8E2E;
+  border: 1px solid #ED8E2E;
+}
+.registration .auth-input-box .form-field-submit button.blue {
+  background: #217A93;
+  border: 1px solid #217A93;
+}
+.registration .auth-input-box.orange {
+  border: 1px solid #ED8E2E;
+}
+.registration .auth-input-box.orange form input:focus {
+  box-shadow: 0 0 5px #ee8822;
+  border: 1px solid #ee8822;
+}
+.registration .auth-input-box.blue {
+  border: 1px solid #217A93;
+}
+.registration .auth-input-box.blue form input:focus {
+  box-shadow: 0 0 5px #217991;
+  border: 1px solid #217991;
+}
+
+.write section {
+  margin: 3em auto;
+  width: 70%;
+}
+.write .write-banner {
+  font-family: 'Cousine', monospace;
+}
+.write .write-wrapper .form-field-wrapper {
+  align-items: flex-start;
+  margin-bottom: 1em;
+}
+.write .write-wrapper .form-field-wrapper input, .write .write-wrapper .form-field-wrapper textarea {
+  font-family: 'Cousine', monospace;
+  margin-top: 8px;
+  padding: 0.5em 0.1em;
+  width: 100%;
+  line-height: 1.4;
+}
+.write .write-wrapper .form-field-wrapper input:focus, .write .write-wrapper .form-field-wrapper textarea:focus {
+  box-shadow: 0 0 5px #217991;
+  border: 1px solid #217991;
+}
+.write .write-wrapper .form-field-submit button {
+  border-radius: 5px;
+  background-color: #217A93;
+  color: white;
+  border: none;
+  width: 100%;
+  padding: 0.8em;
+  margin-top: 2em;
+}
+
+footer {
+  background-color: #ababab;
+  margin-top: 180px;
+  padding: 1em 2em;
+  color: #ebebeb;
+  justify-content: space-between;
+}
+footer img {
+  width: 30px;
+  margin-right: 0.5em;
+}
+footer .branding {
+  color: #ebebeb;
+}
+
+@media only screen and (max-width: 768px) {
+  .registration .auth-input-box {
+    padding: 1em 2em;
+    width: 100%;
+  }
+
+  .index .banner-cta .write-down-cta {
+    font-size: 1em;
+  }
+  .index section {
+    width: 90%;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

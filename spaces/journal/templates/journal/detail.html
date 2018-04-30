@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block subtitle %}Detail - {% endblock %}
+{% load staticfiles %}
+
+{% block body %}
+	<h5>Detailed view: {{ journal_entry.journal_title }}</h5>
+	<p>{{ journal_entry.journal_entry }}</p>
+	<a href="{{ request.get_full_path }}/edit">Edit this entry</a>
+{% endblock %}

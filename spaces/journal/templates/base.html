@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	{% load staticfiles %}
+
+	<!-- STYLESHEETS -->
+	<link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.0/normalize.css" media="none" onload="if(media!='all')media='all'">
+	<noscript><link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.0/normalize.css}"></noscript>
+	<link rel="stylesheet" href="{% static 'journal/css/style.css' %}" media="none" onload="if(media!='all')media='all'">
+    <noscript><link rel="stylesheet" href="{% static 'journal/css/style.css' %}"></noscript>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700|Roboto:300,400,500,700" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700|Roboto:300,400,500,700" rel="stylesheet"></noscript>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet"  media="none" onload="if(media!='all')media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet"></noscript>
+    <link href="https://fonts.googleapis.com/css?family=Cousine" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- FAVICON -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'journal/images/favicon/apple-tock-icon.png' %}">
+	<link rel="icon" type="image/png" sizes="32x32" href="{% static 'journal/images/favicon/favicon-32x32.png' %}">
+	<link rel="icon" type="image/png" sizes="16x16" href="{% static 'journal/images/favicon/favicon-16x16.png' %}">
+	<link rel="manifest" href="{% static 'journal/images/favicon/site.webmanifest' %}">
+	<link rel="mask-icon" color="#5bbad5" href="{% static 'journal/images/favicon/safari-pinned-tab.svg' %}">
+	<link rel="shortcut icon" href="{% static 'journal/images/favicon/favicon.ico' %}">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="msapplication-config" content="{% static 'journal/images/favicon/browserconfig.xml' %}">
+	<meta name="theme-color" content="#ffffff">
+
+	<title>{% block subtitle %}{% endblock %}Spaces</title>
+</head>
+<body>
+	{% if user.is_authenticated %}
+	<header>
+		<nav role="navigation" class="flex-row-nowrap">
+			<ul class="flex-row-nowrap">
+				<li>
+					<a href="{% url 'journal:index' %}">
+						<div class="flex-row-nowrap">
+							<img src="{% static 'journal/images/favicon/android-chrome-512x512.png' %}" alt="Spaces Logo">
+							<span class="branding">Spaces</span>
+						</div>
+					</a>
+				</li>
+				<li>
+					<small class="flex-column-nowrap" style="align-items: flex-end;">
+						{{ user.first_name }} {{ user.last_name }} ({{ user.username }})
+						<a href="{% url 'journal:logout' %}">Log out</a>
+					</small>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	{% endif %}
+
+	{% block body %}
+
+	{% endblock %}
+	<footer class="flex-row-wrap">
+		<small>
+			<div>
+				Icons made by <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY.</a>
+				<br>
+				Logo created using <a href="https://logomakr.com/">Logomakr.</a>
+			</div>
+			<br>
+			<div>
+				Stephen Wenceslao. &copy; 2018.
+			</div>
+		</small>
+		<div class="flex-row-nowrap">
+			<img src="{% static 'journal/images/favicon/android-chrome-512x512.png' %}" alt="Spaces Logo">
+			<span class="branding">Spaces</span>
+		</div>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block subtitle %}Dgroup - {% endblock %}
+
+{% block body %}
+
+	<h2>Dgroup Index</h2>
+
+	{% if user.is_authenticated %}
+		<h4>Logged in as {{ user.username }} ({{ user.first_name }} {{ user.last_name }})</h4>
+	{% else %}
+		<h4>You are not logged in.</h4>
+		<a href="{% url 'journal:login' %}">Log in here</a>
+		Or, <a href="{% url 'journal:register' %}">Sign up instead</a>
+	{% endif %}
+
+{% endblock %}
